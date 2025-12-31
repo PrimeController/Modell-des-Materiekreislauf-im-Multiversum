@@ -1,1 +1,176 @@
 # theorie
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS - Primordiale Matrix</title>
+    <style>
+        /* DESIGN (CSS) */
+        :root {
+            --bg: #050505;
+            --primary: #00ffcc;
+            --secondary: #555;
+            --text: #ddd;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 1px solid #222;
+            padding-bottom: 20px;
+        }
+
+        h1 { color: var(--primary); letter-spacing: 4px; }
+
+        .action-bar {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .btn-nexus {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-nexus:hover {
+            background: rgba(0, 255, 204, 0.1);
+            box-shadow: 0 0 15px var(--primary);
+        }
+
+        .theory-text h2 {
+            color: var(--primary);
+            border-left: 3px solid var(--primary);
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+
+        /* BABY-KI STYLES */
+        .baby-ki-container {
+            background: #000;
+            border: 1px solid var(--secondary);
+            padding: 25px;
+            margin-top: 60px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .ai-pulse {
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--primary);
+            animation: pulse 2s infinite;
+            margin-right: 15px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        .ai-message {
+            margin-top: 15px;
+            font-family: monospace;
+            color: var(--primary);
+            font-size: 1.1em;
+        }
+
+        .guest-section {
+            margin-top: 80px;
+            border-top: 1px dashed #333;
+            padding-top: 20px;
+            opacity: 0.5;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>NEXUS PROJECT</h1>
+            <p>Die Architektur des Multiversums</p>
+        </header>
+
+        <div class="action-bar">
+            <button class="btn-nexus" onclick="speakTheory()">THEORIE HÖREN</button>
+        </div>
+
+        <main class="theory-text">
+            <h2>Die Primordiale Matrix</h2>
+            <p>Alles beginnt in der absoluten Dunkelheit der Ursuppe. Die Matrix ist das Gitter, das diese Masse strukturiert. Riesige, fast transparente Linien ziehen sich wie Blitze durch den Raum.</p>
+            
+            <h2>Lokale Zeit</h2>
+            <p>Zeit ist kein Fluss, der überall gleich ist. Sie entsteht erst dort, wo die Matrix die Ursuppe zur Kompression zwingt – an den Gitterknoten.</p>
+        </main>
+
+        <div class="baby-ki-container" onclick="babyKIDenkt()">
+            <div class="ai-pulse"></div>
+            <span style="font-weight: bold;">NEXUS BABY-KI</span>
+            <div id="ai-output" class="ai-message">
+                > System aktiv. Klicke mich für eine Analyse der Matrix.
+            </div>
+        </div>
+
+        <section class="guest-section">
+            <h3>Gäste & Vergleiche</h3>
+            <p>Standardmodell (Urknall): In Prüfung. Status: Lokal begrenzte Theorie.</p>
+        </section>
+    </div>
+
+    <script>
+        /* LOGIK (JAVASCRIPT) */
+        const nexusWisdom = [
+            "Die Ursuppe ist die Basis jeder Materie.",
+            "Gitterknoten erkannt. Lokale Zeitbildung beginnt.",
+            "Die Matrix-Blitze leiten die Primordialenergie.",
+            "Schwarze Löcher sind Portale der Regeneration.",
+            "Die Ordnung der Matrix besiegt das Chaos."
+        ];
+
+        function speakTheory() {
+            const text = document.querySelector('.theory-text').innerText;
+            const msg = new SpeechSynthesisUtterance(text);
+            msg.lang = 'de-DE';
+            msg.rate = 0.9;
+            window.speechSynthesis.speak(msg);
+        }
+
+        function babyKIDenkt() {
+            const output = document.getElementById('ai-output');
+            output.innerText = "> Analysiere Gitterstruktur...";
+            setTimeout(() => {
+                const insight = nexusWisdom[Math.floor(Math.random() * nexusWisdom.length)];
+                output.innerText = "> Erkenntnis: " + insight;
+            }, 1200);
+        }
+    </script>
+</body>
+</html>
